@@ -26,3 +26,11 @@ a, button {
 .text-hidden {
   opacity: 50%;
 }
+
+.text-grey {
+  color: #a0a0a0;
+}
+
+.text-bold {
+  font-weight: bold;
+}
