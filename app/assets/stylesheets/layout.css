@@ -19,8 +19,8 @@ body {
 }
 
 .navbar {
-  align-items: center;
   background-color: #370617;
+  align-items: center;
   color: white;
   display: flex;
   justify-content: space-between;
