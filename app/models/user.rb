@@ -6,6 +6,8 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/}
   validates :nickname, presence: true, uniqueness: true, length: {maximum: 40}, format: { with: /\A\w+\z/ }
 
+  has_many :questions
+
   private
 
   def downcase_email
