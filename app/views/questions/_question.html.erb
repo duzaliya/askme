@@ -1,20 +1,33 @@
 <div class="mb-sm">
-  <%= simple_format h(question.body) %>
+  <% if question.author.present? %>
+    <p class="text-sm text-grey">Вопрос от <%= link_to display_nickname(question.author), user_path(question.author) %></p>
+  <% end %>
+
+  <p><%= simple_format h(question.body) %></p>
 </div>
+
+<% if question.answer.present? %>
+  <div class="mb-sm text-dark-red">
+    <%= question.answer %>
+  </div>
+<% end %>
 
 <div class="text-sm question-footer">
   <div class="text-grey">
     <%= l(question.created_at, format: :short) %>
   </div>
 
-  <div>
-    <%= link_to fa_icon('pencil'), edit_question_path(question),
-                title: 'Изменить вопрос' %>
-    <% unless question.hidden? %>
-      <% button_to fa_icon('eye-slash'), hide_question_path(question),
-                   method: :patch, title: 'Скрыть вопрос' %>
-    <% end %>
-    <%= button_to fa_icon('trash-o'), question_path(question),
-                  method: :delete, title: 'Удалить вопрос' %>
-  </div>
+  <% if question.user == current_user %>
+    <div>
+      <% edit_icon = question.answer.blank? ? 'reply' : 'pencil' %>
+      <%= link_to fa_icon(edit_icon), edit_question_path(question),
+                  title: 'Изменить вопрос', class: 'mr-sm' %>
+      <% unless question.hidden? %>
+        <% button_to fa_icon('eye-slash'), hide_question_path(question),
+                     method: :patch, title: 'Скрыть вопрос' %>
+      <% end %>
+      <%= button_to fa_icon('trash-o'), question_path(question),
+                    method: :delete, title: 'Удалить вопрос' %>
+    </div>
+  <% end %>
 </div>
