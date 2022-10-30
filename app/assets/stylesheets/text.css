@@ -31,10 +31,22 @@ a, button {
   color: #a0a0a0;
 }
 
+.text-light-grey {
+  color: #c0c0c0;
+}
+
 .text-bold {
   font-weight: bold;
 }
 
 .text-red {
   color: #d00000;
+}
+
+.text-dark-red {
+  color: #9d0208;
+}
+
+.text-center {
+  text-align: center;
 }
