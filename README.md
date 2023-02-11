@@ -1,24 +1,40 @@
-# README
+# AskMe
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Приложение-аналог [ASKfm](https://ru.wikipedia.org/wiki/ASKfm). Задавай вопросы и отвечай на свои!
 
-Things you may want to cover:
+#### Для запуска:
 
-* Ruby version
+```
+Ruby 3.0.0
+Rails 7.0.4
+```
 
-* System dependencies
+##### Склонируйте репозиторий
 
-* Configuration
+```
+git clone https://github.com/duzaliya/askme.git
+```
 
-* Database creation
+##### Перейдите в папку askme
 
-* Database initialization
+```
+cd askme
+```
 
-* How to run the test suite
+##### Установите необходимые гемы командой
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+bundle install
+```
 
-* Deployment instructions
+##### Прогоните миграции
 
-* ...
+```
+bundle exec rake db:migrate
+```
+
+##### Запустите локально
+
+```
+bundle exec rails s
+```
